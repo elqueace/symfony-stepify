@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    {% include 'partials/head.html.twig' %}
+
+    <body class="lighten-3" style="background-image: url({{ asset('img/Bg.png')}});background-repeat:repeat;background-attachment:fixed;">
+
+      {% include 'partials/navigation.html.twig' %}
+
+          <div class="container-fluid">
+              {% block body %}
+
+              {% endblock %}
+          </div>
+
+     {% include 'partials/scripts.html.twig' %}
+
+</body>
+</html>

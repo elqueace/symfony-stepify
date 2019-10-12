@@ -1,0 +1,133 @@
+{% if  app.request.attributes.get('_route') == 'question_answer_index' or app.request.attributes.get('_route') == 'games' %}
+
+<!-- Sidebar navigation -->
+<ul id="slide-out" class="side-nav custom-scrollbar quizzo-sidenav" style="padding:15px;">
+
+<ul class="file-tree">
+    <li>
+        <a href="#">US</a>
+        <ul>
+            <li>
+                <a href="#">New York</a>
+                <ul>
+                    <li>
+                        <a href="#">Corporation</a>
+                        <ul>
+                            <li> <a href="#link5">Link 5</a> </li>
+                            <li> <a href="#link6">Link 6</a> </li>
+                            <li> <a href="#link7">Link 7</a> </li>
+                            <li> <a href="#link8">Link 8</a> </li>
+                            <li>
+                                <a href="#">Deeper</a>
+                                <ul>
+                                    <li><a href="#">Link 1</a> </li>
+                                    <li><a href="#">Link 2</a> </li>
+                                    <li><a href="#">Link 3</a> </li>
+                                    <li><a href="#">Link 4</a> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Sitecore</a>
+                        <ul>
+                            <li style="background-color:#dfe3ee;"> <a href="#link5">Revision Certification Sitecore</a> </li>
+                            <li> <a href="#link5">Lexique Sitecore</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#link2">Link 2</a> </li>
+            <li><a href="#link3">Link 3</a> </li>
+            <li><a href="#link4">Link 4</a> </li>
+        </ul>
+    </li>
+    {% for _domain in listDomains %}
+    <li>
+        <a class="" href="{{ path('question_answer_index', {'domain': _domain['domain'] }) }}">{{_domain["domain"]}}</a>
+        <ul>
+            <li><a href="#">Link 1</a> </li>
+            <li><a href="#">Link 2</a> </li>
+            <li><a href="#">Link 3</a> </li>
+            <li><a href="#">Link 4</a> </li>
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+    <!--/. Sidebar navigation -->
+{% elseif  app.request.attributes.get('_route') == 'game_vocardulary'%}
+        <!-- Sidebar navigation -->
+
+<div id="slide-out" class="side-nav   vocardulary-sidenav">
+    <ul class="custom-scrollbar">
+       
+        <!-- Side navigation links -->
+        <li>
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> Submit blog<i
+                        class="fas fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="waves-effect">Submit listing</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Registration form</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r"><i class="fas fa-hand-pointer"></i> Instruction<i
+                        class="fas fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="waves-effect">For bloggers</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">For authors</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r"><i class="fas fa-eye"></i> About<i class="fas fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="waves-effect">Introduction</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Monthly meetings</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r"><i class="far fa-envelope"></i> Contact me<i class="fas fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="waves-effect">FAQ</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Write a message</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">FAQ</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Write a message</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">FAQ</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Write a message</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">FAQ</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Write a message</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <!--/. Side navigation links -->
+    </ul>
+    <div class="sidenav-bg mask-strong"></div>
+</div>
+        <!--/. Sidebar navigation -->
+
+{% endif %}

@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\public\\css",
+    "\\public\\sounds\\vocardulary",
+    "\\src",
+    "\\src\\Controller",
+    "\\src\\DataFixtures",
+    "\\src\\Entity",
+    "\\templates",
+    "\\templates\\vocardulary"
+  ],
+  "SelectedNode": "\\templates\\partials\\sidebar.html.twig",
+  "PreviewInSolutionExplorer": false
+}

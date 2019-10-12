@@ -1,0 +1,69 @@
+<!--Main Navigation-->
+<header style="margin-bottom: 100px;">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #b3de1d">
+    <!-- Navbar brand -->
+    <a style="font-family:Freckle Face;font-size: 50px;color: #3b5998;text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;" class="navbar-brand" href="{{ path('Home') }}">LudoStud</a>
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link waves-effect waves-light" href="{{ path('Home') }}">Home
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light" href="{{ path('Concept') }}">Concept</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light" href="#">Contact</a>
+            </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+
+              {% if  app.request.attributes.get('_route') != 'question_answer_index' %}
+
+                {% else %}
+
+                <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quizzo</a>
+              <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                {% for _domain in listDomains %}
+                <a class="dropdown-item waves-effect waves-light" href="{{ path('question_answer_index', {'domain': _domain['domain'] }) }}">{{_domain["domain"]}}</a>
+                {% endfor %}
+                <a class="dropdown-item waves-effect waves-light" href="{{ path('question_answer_index', {'domain': 'all' }) }}">Tous les domaines</a>
+
+              </div>
+
+              {% endif %}
+            </li>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <li class="nav-item dropdown">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Bienvenue {{ app.user.username }}</span>
+            </li>
+            {% endif %}
+        </ul>
+        <!-- Links -->
+
+        {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        <a href="{{ path('app_login') }}"><span style="color: white">Se connecter</span></a>
+        <span style="color:dodgerblue;">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+        <a href="{{ path('register') }}"><span class=" bounce waves-effect waves-light" style="color: white">S'inscrire</span></a>
+        {% else %}
+        <a href="{{ path('app_logout') }}"><span class=" bounce waves-effect waves-light" style="color: white">Deconnexion</span></a>
+
+        {% endif %}
+
+    </div>
+    <!-- Collapsible content -->
+    
+    {% include 'partials/sidebar.html.twig' %}
+
+</nav>
+<!-- Navbar -->
+</header>
+<!--Main Navigation-->
